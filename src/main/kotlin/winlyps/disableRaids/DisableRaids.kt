@@ -14,6 +14,9 @@ class DisableRaids : JavaPlugin() {
 
     override fun onDisable() {
         // Plugin shutdown logic
-        logger.info("DisableRaids plugin has been disabled.")
+        server.worlds.forEach { world ->
+            world.setGameRuleValue("disableRaids", "false")
+            logger.info("DisableRaids plugin has been disabled.")
+        }
     }
 }
